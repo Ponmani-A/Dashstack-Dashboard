@@ -9,7 +9,9 @@ export default function OrderLists() {
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
-      <Sidebar activePage="Order Lists" />
+      <div className="hidden lg:block">
+        <Sidebar activePage="Order Lists" />
+      </div>
 
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
@@ -24,7 +26,7 @@ export default function OrderLists() {
       )}
 
       <div className="flex-1 min-w-0">
-        <Navbar onMenuClick={() => setSidebarOpen(true)} />
+        <Navbar onMenuClick={() => setSidebarOpen((prev) => !prev)} />
 
         <main className="p-4 sm:p-6 space-y-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">

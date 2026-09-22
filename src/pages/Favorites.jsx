@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import PromoBanner from "../components/PromoBanner";
 import ProductCard from "../components/ProductCard";
 import FavoriteWatch from "../assets/favorite-watch.png";
 
@@ -61,7 +60,9 @@ export default function Favorites() {
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
-      <Sidebar activePage="Favorites" />
+      <div className="hidden lg:block">
+        <Sidebar activePage="Favorites" />
+      </div>
 
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
@@ -70,13 +71,15 @@ export default function Favorites() {
             onClick={() => setSidebarOpen(false)}
           />
           <div className="absolute left-0 top-0 h-full">
-            <Sidebar activePage="Products" />
+            <Sidebar activePage="Favorites" />
           </div>
         </div>
       )}
 
       <div className="flex-1 min-w-0">
-        <Navbar onMenuClick={() => setSidebarOpen(true)} />
+        {/* "(prev) => !prev" - ithே than toggle logic. Click pannum thorum
+            true/false flip aagum, adhunala open pannalam, close pannalam rendum mudiyum */}
+        <Navbar onMenuClick={() => setSidebarOpen((prev) => !prev)} />
 
         <main className="p-4 sm:p-6 space-y-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
