@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Products from "./pages/Products";
@@ -7,7 +7,7 @@ import OrderLists from "./pages/OrderLists";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/favorites" element={<Favorites />} />
@@ -15,6 +15,6 @@ export default function App() {
         <Route path="/inbox" element={<Inbox />} />
         <Route path="/orders" element={<OrderLists />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
