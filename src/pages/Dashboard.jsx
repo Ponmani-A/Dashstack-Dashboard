@@ -5,10 +5,6 @@ import Navbar from "../components/Navbar";
 import StatCard from "../components/StatCard";
 import SalesChart from "../components/SalesChart";
 import DealsTable from "../components/DealsTable";
-import RevenueChart from "../components/RevenueChart";
-import CustomersCard from "../components/CustomersCard";
-import FeaturedProductCard from "../components/FeaturedProductCard";
-import SalesAnalyticsChart from "../components/SalesAnalyticsChart";
 
 const stats = [
   {
