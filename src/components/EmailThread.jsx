@@ -9,7 +9,6 @@ import {
   Send,
 } from "lucide-react";
 
-// Tag color mapping - EmailList.jsx la irukra adhே object, ithே place la venும் adhுனால் mattum copy pannirukom
 const tagStyles = {
   Primary: "bg-emerald-100 text-emerald-600",
   Social: "bg-blue-100 text-blue-600",
@@ -17,8 +16,6 @@ const tagStyles = {
   Friends: "bg-purple-100 text-purple-600",
 };
 
-// Sample conversation - real app la, email.id vachु backend-la irundhu
-// andha thread-oda messages ah fetch pannுவோம். Ippo static sample data.
 const sampleMessages = [
   {
     id: 1,
@@ -40,13 +37,11 @@ const sampleMessages = [
   },
 ];
 
-// Props:
 // email    -> select panna email object ({ id, name, tag, ... })
-// onBack   -> back arrow click pannina, ithை call pannி list view ku thirumbanum
+// onBack   -> back arrow click pannina, itha call panni list view ku thirumbanum
 export default function EmailThread({ email, onBack }) {
   return (
     <div className="flex-1 min-w-0 bg-white rounded-2xl border border-gray-100 flex flex-col h-[600px]">
-      {/* Header */}
       <div className="flex items-center gap-3 px-5 py-4 border-b border-gray-50">
         <button
           onClick={onBack}
@@ -65,7 +60,6 @@ export default function EmailThread({ email, onBack }) {
           </span>
         )}
 
-        {/* Right side action icons */}
         <div className="flex items-center gap-2 ml-auto">
           <button className="w-9 h-9 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
             <Printer size={16} className="text-gray-600" />
@@ -79,14 +73,12 @@ export default function EmailThread({ email, onBack }) {
         </div>
       </div>
 
-      {/* Messages - scroll aaganum na, flex-1 + overflow-y-auto */}
       <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
         {sampleMessages.map((msg) => (
           <div
             key={msg.id}
             className={`flex items-end gap-3 ${msg.fromMe ? "justify-end" : "justify-start"}`}
           >
-            {/* Avatar - namba mattum illatha (fromMe) side la kaatatha */}
             {!msg.fromMe && (
               <div className="w-10 h-10 rounded-full bg-gray-200 shrink-0" />
             )}

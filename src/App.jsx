@@ -4,6 +4,9 @@ import Favorites from "./pages/Favorites";
 import Products from "./pages/Products";
 import Inbox from "./pages/Inbox";
 import OrderLists from "./pages/OrderLists";
+import ProductStock from "./pages/ProductStock";
+import Pricing from "./pages/Pricing";
+import Calendar from "./pages/Calendar";
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,6 +18,9 @@ export default function App() {
         <Route path="/products" element={<Products />} />{" "}
         <Route path="/inbox" element={<Inbox />} />{" "}
         <Route path="/orders" element={<OrderLists />} />{" "}
+        <Route path="/stock" element={<ProductStock />} />{" "}
+        <Route path="/pricing" element={<Pricing />} />{" "}
+        <Route path="/calender" element={<Calendar />} />{" "}
       </Routes>{" "}
     </BrowserRouter>
   );

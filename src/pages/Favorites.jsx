@@ -77,8 +77,6 @@ export default function Favorites() {
       )}
 
       <div className="flex-1 min-w-0">
-        {/* "(prev) => !prev" - ithே than toggle logic. Click pannum thorum
-            true/false flip aagum, adhunala open pannalam, close pannalam rendum mudiyum */}
         <Navbar onMenuClick={() => setSidebarOpen((prev) => !prev)} />
 
         <main className="p-4 sm:p-6 space-y-6">

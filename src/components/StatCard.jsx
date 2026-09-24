@@ -1,8 +1,5 @@
 import { TrendingUp, TrendingDown } from "lucide-react";
 
-// Ithu oru "reusable" card. 4 card layum design onnu thaan, data mattum vera.
-// Adhunala, oru component eludhi, prop moolama data pass pannuvom.
-//
 // Props:
 // title       -> "Total User" nu maadhiri text
 // value       -> "40,689" nu maadhiri big number

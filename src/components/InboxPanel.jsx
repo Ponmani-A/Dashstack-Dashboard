@@ -9,8 +9,6 @@ import {
   Plus,
 } from "lucide-react";
 
-// "My Email" section la irukra folders - array ah vachurukom, adhunala
-// count maathanum na, ithே array la mattum edit pannina podhum
 const folders = [
   { name: "Inbox", icon: InboxIcon, count: 1253 },
   { name: "Starred", icon: Star, count: 245 },
@@ -21,8 +19,6 @@ const folders = [
   { name: "Bin", icon: Trash2, count: 9 },
 ];
 
-// Label list - ovvoru label-kum oru color. Ithே color, keela email list la
-// tag badge-kum use pannுவோம் (same color-name match aaganum)
 const labels = [
   { name: "Primary", color: "border-emerald-500" },
   { name: "Social", color: "border-blue-500" },
@@ -30,20 +26,14 @@ const labels = [
   { name: "Friends", color: "border-purple-500" },
 ];
 
-// activeFolder, onSelectFolder - ithை parent (Inbox.jsx) la irundhu prop ah edukkirom.
-// Munnadi ithே component-oda own state ah irundhachu, aana EmailList-ku kூda
-// "ippo edhu folder select pannirukom" nu therinjukanum (Starred filter pannanum),
-// adhுனால் state ah parent-கு "lift up" pannிருக்கோம்.
 export default function InboxPanel({ activeFolder, onSelectFolder }) {
   return (
     <div className="w-full lg:w-72 shrink-0 bg-white rounded-2xl border border-gray-100 p-5">
-      {/* Compose button */}
       <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl flex items-center justify-center gap-2 transition-colors">
         <Plus size={18} />
         Compose
       </button>
 
-      {/* My Email folders */}
       <p className="text-sm font-semibold text-gray-900 mt-6 mb-2">My Email</p>
       <div className="space-y-1">
         {folders.map((folder) => {
@@ -71,7 +61,6 @@ export default function InboxPanel({ activeFolder, onSelectFolder }) {
         })}
       </div>
 
-      {/* Labels */}
       <p className="text-sm font-semibold text-gray-900 mt-6 mb-2">Label</p>
       <div className="space-y-1">
         {labels.map((label) => (
@@ -79,7 +68,6 @@ export default function InboxPanel({ activeFolder, onSelectFolder }) {
             key={label.name}
             className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-600 hover:bg-gray-50 cursor-pointer"
           >
-            {/* Checkbox - andha label-oda color-la border vachurukom */}
             <input
               type="checkbox"
               className={`w-4 h-4 rounded border-2 ${label.color} accent-current`}

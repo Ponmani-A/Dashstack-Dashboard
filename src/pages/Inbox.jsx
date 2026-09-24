@@ -5,9 +5,6 @@ import InboxPanel from "../components/InboxPanel";
 import EmailList from "../components/EmailList";
 import EmailThread from "../components/EmailThread";
 
-// Email data ah ippo ithே page (parent) la vachurukom - munnadi EmailList
-// file-kule than irundhachu. Rendு components-கும் (InboxPanel, EmailList)
-// idhே data theriyanum (Starred filter pannanum na), adhுனால் mேலே "lift" pannிருக்கோம்.
 const initialEmails = [
   {
     id: 1,
@@ -110,16 +107,14 @@ const initialEmails = [
 export default function Inbox() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Ippo idhே "Inbox" page than, edhu folder select pannirukom nu track pannுறோம்
+  // entha folder active la iruko atha track pantrathuku use pantrom ...default ah inbox irukum
   const [activeFolder, setActiveFolder] = useState("Inbox");
 
-  const [emails, setEmails] = useState(initialEmails);
+  const [emails, setEmails] = useState(initialEmails); // all email show pantrathuku initial email la ulla list .
 
-  // Ithே email row click pannினா, andha email object ah ithula vachуруக்கோம்.
-  // null na, list view kaाtும். Object irundha, thread/chat view kaाtும்.
+  // null na, list view katrom. Object irundha, thread/chat view katum.
   const [openEmail, setOpenEmail] = useState(null);
 
-  // Star click pannina, andha oru email mattum true/false flip aagும்
   function toggleStar(id) {
     setEmails((prev) =>
       prev.map((email) =>
@@ -134,6 +129,7 @@ export default function Inbox() {
         <Sidebar activePage="Inbox" />
       </div>
 
+      {/* mobile sidebar  sidebar true ana mattum ithu work agum */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div

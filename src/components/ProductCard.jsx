@@ -31,7 +31,6 @@ export default function ProductCard({
 
   return (
     <div className="relative bg-white rounded-2xl border border-gray-100 overflow-hidden">
-      {/* Image area */}
       <div className="relative bg-gray-50 h-64 flex items-center justify-center">
         {image ? (
           <img

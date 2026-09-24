@@ -1,7 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Status name -> color classes mapping. Order data la "status: 'Completed'" nu irundha,
-// ithே object la irundhu andha color eduthுக்குவோம் (StatCard/EmailList la panna maadhiri pattern than)
 const statusStyles = {
   Completed: "bg-emerald-100 text-emerald-600",
   Processing: "bg-indigo-100 text-indigo-600",
@@ -10,87 +8,11 @@ const statusStyles = {
   "In Transit": "bg-purple-100 text-purple-600",
 };
 
-// Sample orders - real app la API/DB-la irundhu varum. Innum order add pannanum na,
-// ithே array la oru object add pannina podhum
-const orders = [
-  {
-    id: "00001",
-    name: "Christine Brooks",
-    address: "089 Kutch Green Apt. 448",
-    date: "04 Sep 2019",
-    type: "Electric",
-    status: "Completed",
-  },
-  {
-    id: "00002",
-    name: "Rosie Pearson",
-    address: "979 Immanuel Ferry Suite 526",
-    date: "28 May 2019",
-    type: "Book",
-    status: "Processing",
-  },
-  {
-    id: "00003",
-    name: "Darrell Caldwell",
-    address: "8587 Frida Ports",
-    date: "23 Nov 2019",
-    type: "Medicine",
-    status: "Rejected",
-  },
-  {
-    id: "00004",
-    name: "Gilbert Johnston",
-    address: "768 Destiny Lake Suite 600",
-    date: "05 Feb 2019",
-    type: "Mobile",
-    status: "Completed",
-  },
-  {
-    id: "00005",
-    name: "Alan Cain",
-    address: "042 Mylene Throughway",
-    date: "29 Jul 2019",
-    type: "Watch",
-    status: "Processing",
-  },
-  {
-    id: "00006",
-    name: "Alfred Murray",
-    address: "543 Weimann Mountain",
-    date: "15 Aug 2019",
-    type: "Medicine",
-    status: "Completed",
-  },
-  {
-    id: "00007",
-    name: "Maggie Sullivan",
-    address: "New Scottieberg",
-    date: "21 Dec 2019",
-    type: "Watch",
-    status: "Processing",
-  },
-  {
-    id: "00008",
-    name: "Rosie Todd",
-    address: "New Jon",
-    date: "30 Apr 2019",
-    type: "Medicine",
-    status: "On Hold",
-  },
-  {
-    id: "00009",
-    name: "Dollie Hines",
-    address: "124 Lyla Forge Suite 975",
-    date: "09 Jan 2019",
-    type: "Book",
-    status: "In Transit",
-  },
-];
-
-export default function OrderTable() {
+// orders - filter pannina result, OrderLists.jsx (parent) la irundhu varum.
+// isDateFiltered - true na, footer "Prev. Date / Next Date" ah maarum
+export default function OrderTable({ orders, isDateFiltered }) {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-      {/* overflow-x-auto - mobile la table perusa irundha, side ah scroll pannalam */}
       <div className="overflow-x-auto">
         <table className="w-full min-w-[900px] text-sm">
           <thead>
@@ -137,21 +59,45 @@ export default function OrderTable() {
                 </td>
               </tr>
             ))}
+
+            {orders.length === 0 && (
+              <tr>
+                <td colSpan={6} className="text-center text-gray-400 py-10">
+                  No orders match the selected filters.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
 
-      {/* Pagination footer */}
       <div className="flex items-center justify-between px-6 py-4">
-        <p className="text-sm text-gray-500">Showing 1-09 of 78</p>
-        <div className="flex items-center gap-2">
-          <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
-            <ChevronLeft size={16} className="text-gray-500" />
-          </button>
-          <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
-            <ChevronRight size={16} className="text-gray-500" />
-          </button>
-        </div>
+        {isDateFiltered ? (
+          <>
+            <button className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">
+              <ChevronLeft size={15} />
+              Prev. Date
+            </button>
+            <button className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">
+              Next Date
+              <ChevronRight size={15} />
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="text-sm text-gray-500">
+              Showing 1-{orders.length.toString().padStart(2, "0")} of 78
+            </p>
+            <div className="flex items-center gap-2">
+              <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
+                <ChevronLeft size={16} className="text-gray-500" />
+              </button>
+              <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
+                <ChevronRight size={16} className="text-gray-500" />
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

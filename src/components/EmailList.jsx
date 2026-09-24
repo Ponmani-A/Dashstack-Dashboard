@@ -9,8 +9,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Tag name -> color classes mapping. Email data la "tag: 'Primary'" nu irundha,
-// ithே object la irundhu andha color eduthுக்குவோம்.
 const tagStyles = {
   Primary: "bg-emerald-100 text-emerald-600",
   Social: "bg-blue-100 text-blue-600",
@@ -19,8 +17,8 @@ const tagStyles = {
 };
 
 // emails, toggleStar, activeFolder - ellame parent (Inbox.jsx) la irundhu prop ah varum.
-// "Starred" folder select pannirukom na, starred:true email mattum filter pannuவோம்,
-// adhோட tag badge-um hide pannுவோம் (design-la andha view la tag illa)
+// "Starred" folder select pannirukom na, starred:true email mattum filter pannuvom,
+// adhoda tag badge-um hide panuvom
 export default function EmailList({
   emails,
   toggleStar,
@@ -32,18 +30,18 @@ export default function EmailList({
     ? emails.filter((email) => email.starred)
     : emails;
 
-  // Checkbox click pannina, andha email-oda id ah "selectedIds" Set-la vachுருக்கோம்.
-  // Set use pannுறோம் na, "already select pannிருக்கோமா" nு check panна easy (`.has()`)
+  // Checkbox click pannina, andha email-oda id ah "selectedIds" Set-la vachurukom.
+  // Set use pannrom na, already select pannirkoma nu check pannа easy (`.has()`)
   const [selectedIds, setSelectedIds] = useState(new Set());
 
   function toggleSelect(id) {
     setSelectedIds((prev) => {
-      // Prev set ah copy pannுறோம் (direct mutate pannாதே, React-la adhு best practice illa)
+      // Prev set ah copy panrom
       const next = new Set(prev);
       if (next.has(id)) {
-        next.delete(id); // Already selected-ah irundha, remove pannு (uncheck)
+        next.delete(id); // Already selected-ah irundha, remove pannumuncheck)
       } else {
-        next.add(id); // Illana, add pannு (check)
+        next.add(id); // Illana, add pannum(check)
       }
       return next;
     });
@@ -51,7 +49,6 @@ export default function EmailList({
 
   return (
     <div className="flex-1 min-w-0 bg-white rounded-2xl border border-gray-100 p-5">
-      {/* Top bar - search + action icons */}
       <div className="flex items-center gap-3 mb-4">
         <div className="flex-1 relative">
           <Search
@@ -75,7 +72,6 @@ export default function EmailList({
         </button>
       </div>
 
-      {/* Email rows */}
       <div className="divide-y divide-gray-50">
         {visibleEmails.map((email) => {
           const isSelected = selectedIds.has(email.id);
@@ -90,15 +86,11 @@ export default function EmailList({
               <input
                 type="checkbox"
                 checked={isSelected}
-                // "stopPropagation" - checkbox click pannினா, andha click parent
-                // div-oda onClick (onOpenEmail) ku "poga koodathu", adhுனாலே ithு potrukom
                 onClick={(e) => e.stopPropagation()}
                 onChange={() => toggleSelect(email.id)}
                 className="w-4 h-4 rounded border-gray-300 shrink-0 accent-gray-900"
               />
 
-              {/* Star - click pannina toggleStar function call aagum.
-                  Ithுக்கும் stopPropagation venும், illana row click aagும் mாதிரி varும் */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -120,8 +112,6 @@ export default function EmailList({
                 {email.name}
               </p>
 
-              {/* Tag badge - Starred view la tag venaam (design la illa), adhukku
-                  "!isStarredView" check-um kூட்டி vachurukom */}
               {!isStarredView && email.tag && (
                 <span
                   className={`text-xs font-medium px-3 py-1 rounded-md shrink-0 ${tagStyles[email.tag]}`}
@@ -139,7 +129,7 @@ export default function EmailList({
           );
         })}
 
-        {/* Starred folder la ஒரு mail-கூட starred illama irundha, empty message kaatunga */}
+        {/* Starred folder la oru mail koota starred illama irundha, empty message kaatum */}
         {visibleEmails.length === 0 && (
           <p className="text-center text-sm text-gray-400 py-10">
             No starred emails yet.
@@ -147,7 +137,6 @@ export default function EmailList({
         )}
       </div>
 
-      {/* Pagination footer */}
       <div className="flex items-center justify-between mt-4 pt-4">
         <p className="text-sm text-gray-500">Showing 1-12 of 1,253</p>
         <div className="flex items-center gap-2">
