@@ -55,8 +55,6 @@ function DateFilterDropdown({ selected, onApply }) {
   const [open, setOpen] = useState(false);
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
-  // "draft" - popup-kulla click pannuratha ellam, ithula mattum vachurupom.
-  // "Apply Now" click panna varaikkum, parent-oda real state touch pannama irukkanum.
   const [draft, setDraft] = useState(selected);
 
   const days = getCalendarDays(viewYear, viewMonth);
@@ -89,8 +87,6 @@ function DateFilterDropdown({ selected, onApply }) {
     onApply(draft);
     setOpen(false);
   }
-
-  // Button-la label - date select pannirundha, first date-oda readable text kaatum
   const buttonLabel =
     selected.length === 0
       ? "Date"
@@ -185,7 +181,7 @@ function DateFilterDropdown({ selected, onApply }) {
   );
 }
 
-// "2019-8-4" (year-month-day, month 0-indexed) -> "04 Sep 2019" mாதிரி readable text
+// "2019-8-4" (year-month-day, month 0-indexed) -> "04 Sep 2019" mathiri readable text
 function formatDateKey(dateKey) {
   const [year, month, day] = dateKey.split("-").map(Number);
   const shortMonths = [
@@ -194,7 +190,7 @@ function formatDateKey(dateKey) {
     "Mar",
     "Apr",
     "May",
-    "Jun",
+    +"Jun",
     "Jul",
     "Aug",
     "Sep",
@@ -205,9 +201,6 @@ function formatDateKey(dateKey) {
   return `${String(day).padStart(2, "0")} ${shortMonths[month]} ${year}`;
 }
 
-// ===================== Pill Multi-Select Dropdown (Order Type / Order Status) =====================
-// Ithே "Order Type" and "Order Status" moonukum use pannuvom.
-// popupTitle, options, noteText - vera vera kudukalam, design onnu than.
 function PillMultiSelectDropdown({
   label,
   popupTitle,
@@ -297,7 +290,6 @@ function PillMultiSelectDropdown({
   );
 }
 
-// ===================== Main Filter Bar =====================
 export const orderTypeOptions = [
   "Health & Medicine",
   "Book & Stationary",
@@ -317,8 +309,7 @@ export const orderStatusOptions = [
 ];
 
 // filters, onFilterChange - parent (OrderLists.jsx) la irundhu varum.
-// Ithே component ippo "state" vachukalathu - parent-la than filters state irukku,
-// idhu prop mattum receive pannum, adhunala real filtering parent-la nadakum.
+
 export default function OrderFilterBar({ filters, onFilterChange }) {
   function handleReset() {
     onFilterChange({ dates: [], orderTypes: [], orderStatuses: [] });

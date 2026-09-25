@@ -1,6 +1,3 @@
-// Ovvoru event-kum, avatar images (chinna circle), name, date/time, address,
-// location, konjam avatar preview + "+N" badge (baaki attendees count).
-// "color" field - CalendarGrid-la event bar-oda color match pannurathukku use pannuvom.
 export const events = [
   {
     id: 1,
@@ -56,7 +53,6 @@ export const events = [
   },
 ];
 
-// onAddEvent - "+ Add New Event" click pannina, parent-ku solrathukku
 export default function EventsPanel({ onAddEvent }) {
   return (
     <div className="w-full lg:w-80 shrink-0 bg-white rounded-2xl border border-gray-100 p-5">
@@ -73,7 +69,6 @@ export default function EventsPanel({ onAddEvent }) {
         {events.map((event) => (
           <div key={event.id} className="py-4 first:pt-0">
             <div className="flex items-start gap-3">
-              {/* Avatar mudhal image - illana grey circle placeholder */}
               {event.avatars[0] ? (
                 <img
                   src={event.avatars[0]}

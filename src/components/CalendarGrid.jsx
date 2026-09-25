@@ -17,9 +17,6 @@ const monthNames = [
   "December",
 ];
 
-// Event bars-oda color - Tailwind class name build panna, oru object-la vachurukom.
-// "border" andha idathula colored strip (event start pannuriya idam kaatuvom),
-// "bg"/"text" - andha bar-oda background/text color.
 const colorStyles = {
   purple: {
     border: "border-purple-600",
@@ -35,9 +32,6 @@ const colorStyles = {
   blue: { border: "border-blue-600", bg: "bg-blue-100", text: "text-blue-700" },
 };
 
-// Calendar-la mattum kaatura bars - list panel-oda data vera, ithu vera.
-// (Glastonbury Festival rendu murai kaatirukom - 20-22 main event, 25-ku oru chinna continuation,
-// design screenshot-la irundha maadhiri)
 const calendarBars = [
   {
     title: "Design Conference",
@@ -144,7 +138,6 @@ export default function CalendarGrid() {
 
   return (
     <div className="flex-1 min-w-0 bg-white rounded-2xl border border-gray-100 p-5 overflow-hidden">
-      {/* Top controls */}
       <div className="flex flex-wrap items-center gap-4 mb-5">
         <button
           onClick={goToday}
@@ -171,7 +164,6 @@ export default function CalendarGrid() {
           </button>
         </div>
 
-        {/* Day/Week/Month toggle */}
         <div className="flex items-center bg-gray-50 rounded-xl p-1">
           {["Day", "Week", "Month"].map((view) => (
             <button
@@ -190,10 +182,8 @@ export default function CalendarGrid() {
       </div>
 
       {activeView !== "Month" ? (
-        // Day/Week view ithu simple version - full calendar build pannala, chinna note kaatirukom
         <div className="py-24 text-center text-gray-400">
-          {activeView} view - coming soon. "Month" tab-ah click pannunga full
-          calendar paakka.
+          {activeView} view - coming soon. "clicked month tab"
         </div>
       ) : (
         <div className="border border-gray-100 rounded-xl overflow-hidden">
@@ -209,7 +199,6 @@ export default function CalendarGrid() {
             ))}
           </div>
 
-          {/* Weeks */}
           {weeks.map((week, weekIndex) => {
             const bars = getEventBarsForWeek(week);
             return (
@@ -249,7 +238,6 @@ export default function CalendarGrid() {
                   );
                 })}
 
-                {/* Event bars - correct column span-la potrom, ovvoru bar-um vera vera row-la (mela mela stack aagum) */}
                 {bars.map((bar, i) => (
                   <div
                     key={`${bar.title}-${i}`}
