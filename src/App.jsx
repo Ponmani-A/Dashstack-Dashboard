@@ -7,6 +7,8 @@ import OrderLists from "./pages/OrderLists";
 import ProductStock from "./pages/ProductStock";
 import Pricing from "./pages/Pricing";
 import Calendar from "./pages/Calendar";
+import TodoList from "./pages/TodoList";
+import Contact from "./pages/Contact";
 export default function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/stock" element={<ProductStock />} />{" "}
         <Route path="/pricing" element={<Pricing />} />{" "}
         <Route path="/calender" element={<Calendar />} />{" "}
+        <Route path="/todo" element={<TodoList />} />{" "}
+        <Route path="/contact" element={<Contact />} />{" "}
       </Routes>{" "}
     </BrowserRouter>
   );
