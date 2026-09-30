@@ -69,7 +69,7 @@ export default function SalesChart() {
                 <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
               </linearGradient>
             </defs>
-            {/* vertical line vendam  */}
+            {/* vertical line vendam  */}+
             <CartesianGrid vertical={false} stroke="#F1F5F9" />
             <XAxis
               dataKey="name"

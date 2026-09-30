@@ -38,13 +38,13 @@ export default function InboxPanel({ activeFolder, onSelectFolder }) {
       <div className="space-y-1">
         {folders.map((folder) => {
           const Icon = folder.icon;
-          const isActive = activeFolder === folder.name;
+          const isActive = activeFolder === folder.name; //inbox==inbox -> true
           return (
             <button
               key={folder.name}
-              onClick={() => onSelectFolder(folder.name)}
+              onClick={() => onSelectFolder(folder.name)} // onselectfolder(inbox)
               className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm transition-colors ${
-                isActive
+                isActive // true
                   ? "bg-blue-50 text-blue-600 font-medium"
                   : "text-gray-600 hover:bg-gray-50"
               }`}

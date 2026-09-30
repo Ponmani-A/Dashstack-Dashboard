@@ -6,7 +6,7 @@ export default function Navbar({ onMenuClick }) {
     <header className="flex items-center gap-4 px-4 sm:px-6 py-4 bg-white border-b border-gray-100">
       <button
         onClick={onMenuClick}
-        className=" p-2 rounded-lg hover:bg-gray-100"
+        className=" p-2 rounded-lg hover:bg-gray-100  md:hidden"
       >
         <Menu size={22} />
       </button>

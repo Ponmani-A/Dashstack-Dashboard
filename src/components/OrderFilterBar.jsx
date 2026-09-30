@@ -47,7 +47,6 @@ function getCalendarDays(year, month) {
   return days;
 }
 
-// ===================== Date Filter Dropdown =====================
 // selected -> parent (OrderFilterBar) la irundhu current selected dates array varum
 // onApply -> "Apply Now" click pannina, puthu dates array ah parent-ku kudukkurathukku
 function DateFilterDropdown({ selected, onApply }) {

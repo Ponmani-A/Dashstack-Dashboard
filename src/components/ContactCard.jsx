@@ -12,7 +12,6 @@ export default function ContactCard({ name, email, image }) {
         <h3 className="font-bold text-gray-900">{name}</h3>
         <p className="text-sm text-gray-500 mt-1">{email}</p>
 
-        {/* Message click pannina, Inbox page-ku kootitu pogum - real navigation */}
         <button className="w-full flex items-center justify-center gap-2 border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium py-2.5 rounded-xl mt-4 transition-colors">
           <Mail size={16} />
           Message

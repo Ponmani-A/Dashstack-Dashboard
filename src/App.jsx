@@ -9,6 +9,9 @@ import Pricing from "./pages/Pricing";
 import Calendar from "./pages/Calendar";
 import TodoList from "./pages/TodoList";
 import Contact from "./pages/Contact";
+import Invoice from "./pages/Invoice";
+import UIElements from "./pages/UIElements";
+import Team from "./pages/Team";
 export default function App() {
   return (
     <BrowserRouter>
@@ -25,6 +28,9 @@ export default function App() {
         <Route path="/calender" element={<Calendar />} />{" "}
         <Route path="/todo" element={<TodoList />} />{" "}
         <Route path="/contact" element={<Contact />} />{" "}
+        <Route path="/invoice" element={<Invoice />} />{" "}
+        <Route path="/ui-elements" element={<UIElements />} />{" "}
+        <Route path="/team" element={<Team />} />{" "}
       </Routes>{" "}
     </BrowserRouter>
   );

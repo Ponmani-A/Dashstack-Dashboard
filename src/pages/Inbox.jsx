@@ -107,12 +107,10 @@ const initialEmails = [
 export default function Inbox() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // entha folder active la iruko atha track pantrathuku use pantrom ...default ah inbox irukum
   const [activeFolder, setActiveFolder] = useState("Inbox");
 
-  const [emails, setEmails] = useState(initialEmails); // all email show pantrathuku initial email la ulla list .
+  const [emails, setEmails] = useState(initialEmails);
 
-  // null na, list view katrom. Object irundha, thread/chat view katum.
   const [openEmail, setOpenEmail] = useState(null);
 
   function toggleStar(id) {
@@ -129,7 +127,6 @@ export default function Inbox() {
         <Sidebar activePage="Inbox" />
       </div>
 
-      {/* mobile sidebar  sidebar true ana mattum ithu work agum */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div

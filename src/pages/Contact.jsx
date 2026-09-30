@@ -105,7 +105,6 @@ export default function Contact() {
             </button>
           </div>
 
-          {/* Add contact inline form - "showAddForm" true na mattum theriyum */}
           {showAddForm && (
             <div className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col sm:flex-row gap-3">
               <input
