@@ -97,40 +97,10 @@ export default function Contact() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Contact
             </h1>
-            <button
-              onClick={() => setShowAddForm((prev) => !prev)}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-xl transition-colors shrink-0"
-            >
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-xl transition-colors shrink-0">
               Add New Contact
             </button>
           </div>
-
-          {showAddForm && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col sm:flex-row gap-3">
-              <input
-                type="text"
-                autoFocus
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                placeholder="Name"
-                className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-200"
-              />
-              <input
-                type="email"
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleAddContact()}
-                placeholder="Email"
-                className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-200"
-              />
-              <button
-                onClick={handleAddContact}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-xl shrink-0"
-              >
-                Add
-              </button>
-            </div>
-          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
             {contacts.map((contact) => (
