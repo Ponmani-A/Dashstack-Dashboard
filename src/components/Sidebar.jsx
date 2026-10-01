@@ -40,7 +40,6 @@ const pagesMenu = [
 export default function Sidebar({ activePage = "Dashboard" }) {
   return (
     <aside className=" lg:flex lg:flex-col w-64 shrink-0 border-r border-gray-100 h-screen sticky top-0 overflow-y-auto bg-white">
-      {/* Logo */}
       <div className="px-6 py-6">
         <h1 className="text-2xl font-bold">
           <span className="text-gray-900">Dash</span>

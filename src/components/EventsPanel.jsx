@@ -87,7 +87,6 @@ export default function EventsPanel({ onAddEvent }) {
                 <p className="text-sm text-gray-500">{event.address}</p>
                 <p className="text-sm text-gray-500">{event.location}</p>
 
-                {/* Attendee avatars + "+N" badge */}
                 <div className="flex items-center -space-x-2 mt-3">
                   {event.avatars.slice(0, 3).map((src, i) => (
                     <img

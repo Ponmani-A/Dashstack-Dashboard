@@ -259,7 +259,6 @@ export default function CalendarGrid() {
             ))}
           </div>
 
-          {/* Weeks */}
           {weeks.map((week, weekIndex) => {
             const bars = getEventBarsForWeek(week);
             return (

@@ -102,7 +102,6 @@ export default function EmailThread({ email, onBack }) {
         ))}
       </div>
 
-      {/* Reply box */}
       <div className="flex items-center gap-3 px-5 py-4 border-t border-gray-50">
         <button className="text-gray-400 hover:text-gray-600 shrink-0">
           <Mic size={20} />

@@ -81,8 +81,6 @@ export default function ProductStock() {
   const [products, setProducts] = useState(initialProducts);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Real search - searchTerm-oda match aagura product mattum kaatum.
-
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );

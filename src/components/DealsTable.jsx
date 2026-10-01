@@ -1,5 +1,5 @@
 import appleWatchImg from "../assets/applewatch.png";
-// Table ku status color venum, adhukku oru chinna helper function
+
 function StatusBadge({ status }) {
   const styles = {
     Delivered: "bg-emerald-100 text-emerald-600",

@@ -1,5 +1,7 @@
-import { Pencil, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 
+// products, onDelete - parent-la irundhu varum. onDelete - trash icon click pannina,
+// andha product ah list-la irundhu remove pannurathukku
 export default function ProductStockTable({ products, onDelete }) {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
@@ -46,7 +48,6 @@ export default function ProductStockTable({ products, onDelete }) {
                 <td className="px-6 py-3 text-gray-500">{product.price}</td>
                 <td className="px-6 py-3 text-gray-500">{product.piece}</td>
                 <td className="px-6 py-3">
-                  {/* Ovvoru color-kum oru chinna circle. "colors" array-la hex code irukku */}
                   <div className="flex items-center gap-2">
                     {product.colors.map((color, i) => (
                       <span
@@ -72,30 +73,8 @@ export default function ProductStockTable({ products, onDelete }) {
                 </td>
               </tr>
             ))}
-
-            {products.length === 0 && (
-              <tr>
-                <td colSpan={7} className="text-center text-gray-400 py-10">
-                  No products found.
-                </td>
-              </tr>
-            )}
           </tbody>
         </table>
-      </div>
-
-      <div className="flex items-center justify-between px-6 py-4">
-        <p className="text-sm text-gray-500">
-          Showing 1-{String(products.length).padStart(2, "0")} of 78
-        </p>
-        <div className="flex items-center gap-2">
-          <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
-            <ChevronLeft size={16} className="text-gray-500" />
-          </button>
-          <button className="w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center">
-            <ChevronRight size={16} className="text-gray-500" />
-          </button>
-        </div>
       </div>
     </div>
   );

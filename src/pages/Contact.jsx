@@ -1,75 +1,65 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import ContactCard from "../components/ContactCard";
-import contactimg1 from "../assets/cont-img-1.png";
-import contactimg2 from "../assets/cont-img-2.png";
-import contactimg3 from "../assets/cont-img-3.png";
-import contactimg4 from "../assets/cont-img-4.png";
-import contactimg5 from "../assets/cont-img-5.png";
-import contactimg6 from "../assets/cont-img-6.png";
 
 const initialContacts = [
   {
     id: 1,
     name: "Jason Price",
     email: "kuhlman.jermey@yahoo.com",
-    image: contactimg2,
+    image:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&h=400&fit=crop",
   },
   {
     id: 2,
     name: "Duane Dean",
     email: "rusty.botsford@wilfrid.io",
-    image: contactimg1,
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
   },
   {
     id: 3,
     name: "Jonathan Barker",
     email: "cora_haley@quinn.biz",
-    image: contactimg3,
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
   },
   {
     id: 4,
     name: "Rosie Glover",
     email: "lockman.marques@hotmail.com",
-    image: contactimg4,
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop",
   },
   {
     id: 5,
     name: "Patrick Greer",
     email: "pearlie.eichmann@trevion.net",
-    image: contactimg5,
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
   },
   {
     id: 6,
     name: "Darrell Ortega",
     email: "chaya.shields@ferry.info",
-    image: contactimg6,
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop",
   },
 ];
 
+// AddContact.jsx-la "localStorage.setItem('dashstack_contacts', ...)" nu save
+// pannirundhom. Idha inga padikkurom, puthusa add panna contacts top-la varum.
+function loadContacts() {
+  const stored = JSON.parse(localStorage.getItem("dashstack_contacts") || "[]");
+  return [...stored, ...initialContacts];
+}
+
 export default function Contact() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [contacts, setContacts] = useState(initialContacts);
-
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [newName, setNewName] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-
-  function handleAddContact() {
-    if (newName.trim() === "" || newEmail.trim() === "") return;
-
-    const newContact = {
-      id: Date.now(),
-      name: newName,
-      email: newEmail,
-      image: `https://ui-avatars.com/api/?name=${encodeURIComponent(newName)}&size=400&background=E5E7EB&color=374151`,
-    };
-    setContacts((prev) => [newContact, ...prev]);
-    setNewName("");
-    setNewEmail("");
-    setShowAddForm(false);
-  }
+  const [contacts, setContacts] = useState(loadContacts);
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
@@ -97,7 +87,12 @@ export default function Contact() {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Contact
             </h1>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-xl transition-colors shrink-0">
+
+            {/* Click pannina, inline form illama, "Add New Contact" page-kku pogum */}
+            <button
+              onClick={() => navigate("/add-contact")}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-xl transition-colors shrink-0"
+            >
               Add New Contact
             </button>
           </div>

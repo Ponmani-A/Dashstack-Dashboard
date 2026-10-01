@@ -16,9 +16,6 @@ const tagStyles = {
   Friends: "bg-purple-100 text-purple-600",
 };
 
-// emails, toggleStar, activeFolder - ellame parent (Inbox.jsx) la irundhu prop ah varum.
-// "Starred" folder select pannirukom na, starred:true email mattum filter pannuvom,
-// adhoda tag badge-um hide panuvom
 export default function EmailList({
   emails,
   toggleStar,
@@ -30,8 +27,6 @@ export default function EmailList({
     ? emails.filter((email) => email.starred)
     : emails;
 
-  // Checkbox click pannina, andha email-oda id ah "selectedIds" Set-la vachurukom.
-  // Set use pannrom na, already select pannirkoma nu check pannа easy (`.has()`)
   const [selectedIds, setSelectedIds] = useState(new Set());
 
   function toggleSelect(id) {
@@ -129,7 +124,6 @@ export default function EmailList({
           );
         })}
 
-        {/* Starred folder la oru mail koota starred illama irundha, empty message kaatum */}
         {visibleEmails.length === 0 && (
           <p className="text-center text-sm text-gray-400 py-10">
             No starred emails yet.

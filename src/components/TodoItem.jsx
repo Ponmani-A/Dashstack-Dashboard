@@ -12,7 +12,6 @@ export default function TodoItem({
         task.completed ? "bg-blue-500" : "bg-gray-50"
       }`}
     >
-      {/* Checkbox - click pannina, onToggleComplete call aagum */}
       <button
         onClick={() => onToggleComplete(task.id)}
         className={`w-6 h-6 rounded-md border-2 flex items-center justify-center shrink-0 transition-colors ${
