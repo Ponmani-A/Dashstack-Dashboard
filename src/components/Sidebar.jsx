@@ -76,7 +76,7 @@ export default function Sidebar({ activePage = "Dashboard" }) {
           isActive={activePage === "Settings"}
         />
         <MenuItem
-          item={{ name: "Logout", icon: LogOut, path: "/logout" }}
+          item={{ name: "Logout", icon: LogOut, path: "/login" }}
           isActive={false}
         />
       </div>
